@@ -16,7 +16,7 @@ def change_xp_gold_and_tower_hp(path, save_path, xp_gold_mul, tower_hp_mul):
 
     data_change_tower_hp = []
     for i, line in enumerate(data_change_xp_gold, 1):
-        if 'Good Tower' in line or 'Bad Tower' in line:
+        if 'Good Tower' in line or 'Bad Tower' in line or 'Guys Fort' in line:
             print(i, line, end='')
             for i2, line2 in enumerate(data_change_xp_gold[i:], i):
                 if 'StatusHealth' in line2:
@@ -34,4 +34,4 @@ def change_xp_gold_and_tower_hp(path, save_path, xp_gold_mul, tower_hp_mul):
 
 
 if __name__ == '__main__':
-    change_xp_gold_and_tower_hp(r'../npc/npc_units.txt', 'npc_units.txt', 2, 1)
+    change_xp_gold_and_tower_hp(r'../npc/npc_units.txt', 'npc_units.txt', 2, 2)
