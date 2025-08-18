@@ -565,7 +565,8 @@ class MainWin(QWidget, Ui_Form):
             time3 = self.box_neutral_items_lv3.value()
             time4 = self.box_neutral_items_lv4.value()
             time5 = self.box_neutral_items_lv5.value()
-            neutral_items.change_time(path, save_path, time1, time2, time3, time4, time5)
+            time6 = self.box_neutral_items_lv6.value()
+            neutral_items.change_time(path, save_path, time1, time2, time3, time4, time5, time6)
             self.le_status_bar.setText('neutral_items.txt apply.')
         except Exception as e:
             self.le_status_bar.setText(f'error: {e}')
