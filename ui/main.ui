@@ -300,10 +300,13 @@
       <item>
        <widget class="QDoubleSpinBox" name="box_npc_units_xp_gold">
         <property name="decimals">
-         <number>1</number>
+         <number>2</number>
         </property>
         <property name="minimum">
          <double>1.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>100.000000000000000</double>
         </property>
         <property name="singleStep">
          <double>0.100000000000000</double>
@@ -327,10 +330,13 @@
       <item>
        <widget class="QDoubleSpinBox" name="box_npc_units_tower_hp">
         <property name="decimals">
-         <number>1</number>
+         <number>2</number>
         </property>
         <property name="minimum">
          <double>1.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>100.000000000000000</double>
         </property>
         <property name="singleStep">
          <double>0.100000000000000</double>
