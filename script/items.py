@@ -1,4 +1,4 @@
-def change_midas(path, save_path, xp, gold):
+def change_items(path, save_path, xp, gold, attack_speed, attack_damage, magic_damage):
     with open(path, 'r', encoding='utf-8') as f:
         data = f.readlines()
 
@@ -17,6 +17,29 @@ def change_midas(path, save_path, xp, gold):
                     change_index_and_line[i2] = line2_new
                     print(i2 + 1, line2_new, end='')
                     break
+
+        if '// Moon Shard' in line:
+            print(i + 1, line, end='')
+            for i2, line2 in enumerate(data[i:], i):
+                if 'consumed_bonus' in line2:
+                    line2_new = line2.replace('60', f'{attack_speed}')
+                    change_index_and_line[i2] = line2_new
+                    print(i2 + 1, line2_new, end='')
+                    break
+
+        if '// Rapier' in line:
+            print(i + 1, line, end='')
+            for i2, line2 in enumerate(data[i:], i):
+                if 'bonus_spell_amp' in line2:
+                    line2_new = line2.replace('25', f'{magic_damage}')
+                    change_index_and_line[i2] = line2_new
+                    print(i2 + 1, line2_new, end='')
+                if 'bonus_damage' in line2:
+                    line2_new = line2.replace('250', f'{attack_damage}')
+                    change_index_and_line[i2] = line2_new
+                    print(i2 + 1, line2_new, end='')
+                    break
+
     for index, line in change_index_and_line.items():
         data_new[index] = line
 
@@ -25,4 +48,4 @@ def change_midas(path, save_path, xp, gold):
 
 
 if __name__ == '__main__':
-    change_midas(r'../npc/items.txt', 'items.txt', 10.0, 2000)
+    change_items(r'../npc/items.txt', 'items.txt', 10.0, 2000, 300, 400, 100)

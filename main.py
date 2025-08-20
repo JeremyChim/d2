@@ -587,7 +587,10 @@ class MainWin(QWidget, Ui_Form):
             save_path = self.le_root.text() + '/vpk/pak01_dir/scripts/npc/items.txt'
             xp = self.box_item_hand_of_midas_xp.value()
             gold = self.box_item_hand_of_midas_gold.value()
-            items.change_midas(path, save_path, xp, gold)
+            attack_speed = self.box_item_moon_shard_attack_speed.value()
+            attack_damage = self.box_item_rapier_attack_damage.value()
+            magic_damage = self.box_item_rapier_magic_damage.value()
+            items.change_items(path, save_path, xp, gold, attack_speed, attack_damage, magic_damage)
             self.le_status_bar.setText('items.txt apply.')
         except Exception as e:
             self.le_status_bar.setText(f'error: {e}')

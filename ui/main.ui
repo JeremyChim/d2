@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>911</width>
-    <height>559</height>
+    <height>676</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -188,7 +188,7 @@
      <x>10</x>
      <y>400</y>
      <width>191</width>
-     <height>121</height>
+     <height>241</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -202,7 +202,7 @@
     <item>
      <widget class="QLabel" name="label_10">
       <property name="text">
-       <string>item_hand_of_midas</string>
+       <string>// Hand of Midas</string>
       </property>
      </widget>
     </item>
@@ -246,6 +246,95 @@
         </property>
         <property name="value">
          <number>2000</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_29">
+      <property name="text">
+       <string>// Moon Shard</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_21">
+      <item>
+       <widget class="QLabel" name="label_30">
+        <property name="text">
+         <string>attack_speed</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDoubleSpinBox" name="box_item_moon_shard_attack_speed">
+        <property name="decimals">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <double>1000.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>10.000000000000000</double>
+        </property>
+        <property name="value">
+         <double>60.000000000000000</double>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_32">
+      <property name="text">
+       <string>// Rapier</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_22">
+      <item>
+       <widget class="QLabel" name="label_31">
+        <property name="text">
+         <string>attack_damage</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="box_item_rapier_attack_damage">
+        <property name="maximum">
+         <number>10000</number>
+        </property>
+        <property name="singleStep">
+         <number>100</number>
+        </property>
+        <property name="value">
+         <number>250</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_23">
+      <item>
+       <widget class="QLabel" name="label_33">
+        <property name="text">
+         <string>magic_damage</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="box_item_rapier_magic_damage">
+        <property name="maximum">
+         <number>1000</number>
+        </property>
+        <property name="singleStep">
+         <number>10</number>
+        </property>
+        <property name="value">
+         <number>25</number>
         </property>
        </widget>
       </item>
@@ -809,7 +898,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>530</y>
+     <y>650</y>
      <width>891</width>
      <height>20</height>
     </rect>
@@ -977,6 +1066,19 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="Line" name="line_5">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>520</y>
+     <width>691</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
    </property>
   </widget>
  </widget>
