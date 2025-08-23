@@ -2549,7 +2549,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_movement_speed"	"150"
+			"bonus_movement_speed"	"130"
 			"maximum_distance"		"800"
 			"vision_radius"			"200"
 			"tp_cooldown"			"40"
