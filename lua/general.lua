@@ -44,19 +44,19 @@ Customize.Ban = {
 --]]
 Customize.Radiant_Heros = {
     'Random',
-    'Random',
-    'Random',
-    'Random',
-    'Random',
+	'Random',
+	'Random',
+	'Random',
+	'Random',
 }
 
 -- Same notes as above for picking heroes but for the Dire side.
 Customize.Dire_Heros = {
-    'Random',
-    'Random',
-    'Random',
-    'Random',
-    'Random',
+	'Random',
+	'Random',
+	'Random',
+	'Random',
+	'Random',
 }
 
 --[[
