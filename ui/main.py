@@ -528,7 +528,7 @@ class Ui_Form(object):
         self.box_item_travel_boots_2_move_speed = QtWidgets.QSpinBox(self.verticalLayoutWidget_6)
         self.box_item_travel_boots_2_move_speed.setMaximum(10000)
         self.box_item_travel_boots_2_move_speed.setSingleStep(10)
-        self.box_item_travel_boots_2_move_speed.setProperty("value", 150)
+        self.box_item_travel_boots_2_move_speed.setProperty("value", 130)
         self.box_item_travel_boots_2_move_speed.setObjectName("box_item_travel_boots_2_move_speed")
         self.horizontalLayout_25.addWidget(self.box_item_travel_boots_2_move_speed)
         self.verticalLayout_13.addLayout(self.horizontalLayout_25)
