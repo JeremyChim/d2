@@ -585,14 +585,15 @@ class MainWin(QWidget, Ui_Form):
         try:
             path = self.le_root.text() + '/npc/items.txt'
             save_path = self.le_root.text() + '/vpk/pak01_dir/scripts/npc/items.txt'
-            xp = self.box_item_hand_of_midas_xp.value()
-            gold = self.box_item_hand_of_midas_gold.value()
-            attack_speed = self.box_item_moon_shard_attack_speed.value()
-            attack_damage = self.box_item_rapier_attack_damage.value()
-            magic_damage = self.box_item_rapier_magic_damage.value()
-            move_speed = self.box_item_travel_boots_move_speed.value()
-            move_speed2 = self.box_item_travel_boots_2_move_speed.value()
-            items.change_items(path, save_path, xp, gold, attack_speed, attack_damage, magic_damage, move_speed, move_speed2)
+            mds_atk_spd = self.box_item_hand_of_midas_attack_speed.value()
+            mds_xp = self.box_item_hand_of_midas_xp.value()
+            mds_gold = self.box_item_hand_of_midas_gold.value()
+            moon_atk_spd = self.box_item_moon_shard_attack_speed.value()
+            rap_atk_dmg = self.box_item_rapier_attack_damage.value()
+            rap_mgc_dmg = self.box_item_rapier_magic_damage.value()
+            boot_mov_spd = self.box_item_travel_boots_move_speed.value()
+            boot2_mov_spd = self.box_item_travel_boots_2_move_speed.value()
+            items.change_items(path, save_path, mds_atk_spd, mds_xp, mds_gold, moon_atk_spd, rap_atk_dmg, rap_mgc_dmg, boot_mov_spd, boot2_mov_spd)
             self.le_status_bar.setText('items.txt apply.')
         except Exception as e:
             self.le_status_bar.setText(f'error: {e}')

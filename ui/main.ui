@@ -207,6 +207,30 @@
      </widget>
     </item>
     <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_13">
+      <item>
+       <widget class="QLabel" name="label_38">
+        <property name="text">
+         <string>attack_speed</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="box_item_hand_of_midas_attack_speed">
+        <property name="maximum">
+         <number>100000</number>
+        </property>
+        <property name="singleStep">
+         <number>10</number>
+        </property>
+        <property name="value">
+         <number>50</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
      <layout class="QHBoxLayout" name="horizontalLayout_7">
       <item>
        <widget class="QLabel" name="label_7">

@@ -1,4 +1,4 @@
-def change_items(path, save_path, xp, gold, attack_speed, attack_damage, magic_damage, move_speed, move_speed2):
+def change_items(path, save_path, mds_atk_spd, mds_xp, mds_gold, moon_atk_spd, rap_atk_dmg, rap_mgc_dmg, boot_mov_spd, boot2_mov_speed):
     with open(path, 'r', encoding='utf-8') as f:
         data = f.readlines()
 
@@ -8,12 +8,16 @@ def change_items(path, save_path, xp, gold, attack_speed, attack_damage, magic_d
         if '// Hand of Midas' in line:
             print(i + 1, line, end='')
             for i2, line2 in enumerate(data[i:], i):
+                if 'bonus_attack_speed' in line2:
+                    line2_new = line2.replace('35', f'{mds_atk_spd}')
+                    change_index_and_line[i2] = line2_new
+                    print(i2 + 1, line2_new, end='')
                 if 'xp_multiplier' in line2:
-                    line2_new = line2.replace('2.1', f'{xp}')
+                    line2_new = line2.replace('2.1', f'{mds_xp}')
                     change_index_and_line[i2] = line2_new
                     print(i2 + 1, line2_new, end='')
                 if 'bonus_gold' in line2:
-                    line2_new = line2.replace('160', f'{gold}')
+                    line2_new = line2.replace('160', f'{mds_gold}')
                     change_index_and_line[i2] = line2_new
                     print(i2 + 1, line2_new, end='')
                     break
@@ -22,7 +26,7 @@ def change_items(path, save_path, xp, gold, attack_speed, attack_damage, magic_d
             print(i + 1, line, end='')
             for i2, line2 in enumerate(data[i:], i):
                 if 'consumed_bonus' in line2:
-                    line2_new = line2.replace('60', f'{attack_speed}')
+                    line2_new = line2.replace('60', f'{moon_atk_spd}')
                     change_index_and_line[i2] = line2_new
                     print(i2 + 1, line2_new, end='')
                     break
@@ -31,11 +35,11 @@ def change_items(path, save_path, xp, gold, attack_speed, attack_damage, magic_d
             print(i + 1, line, end='')
             for i2, line2 in enumerate(data[i:], i):
                 if 'bonus_spell_amp' in line2:
-                    line2_new = line2.replace('25', f'{magic_damage}')
+                    line2_new = line2.replace('25', f'{rap_mgc_dmg}')
                     change_index_and_line[i2] = line2_new
                     print(i2 + 1, line2_new, end='')
                 if 'bonus_damage' in line2:
-                    line2_new = line2.replace('250', f'{attack_damage}')
+                    line2_new = line2.replace('250', f'{rap_atk_dmg}')
                     change_index_and_line[i2] = line2_new
                     print(i2 + 1, line2_new, end='')
                     break
@@ -44,7 +48,7 @@ def change_items(path, save_path, xp, gold, attack_speed, attack_damage, magic_d
             print(i + 1, line, end='')
             for i2, line2 in enumerate(data[i:], i):
                 if 'bonus_movement_speed' in line2:
-                    line2_new = line2.replace('90', f'{move_speed}')
+                    line2_new = line2.replace('90', f'{boot_mov_spd}')
                     change_index_and_line[i2] = line2_new
                     print(i2 + 1, line2_new, end='')
                     break
@@ -53,7 +57,7 @@ def change_items(path, save_path, xp, gold, attack_speed, attack_damage, magic_d
             print(i + 1, line, end='')
             for i2, line2 in enumerate(data[i:], i):
                 if 'bonus_movement_speed' in line2:
-                    line2_new = line2.replace('110', f'{move_speed2}')
+                    line2_new = line2.replace('110', f'{boot2_mov_speed}')
                     change_index_and_line[i2] = line2_new
                     print(i2 + 1, line2_new, end='')
                     break
@@ -66,4 +70,4 @@ def change_items(path, save_path, xp, gold, attack_speed, attack_damage, magic_d
 
 
 if __name__ == '__main__':
-    change_items(r'../npc/items.txt', 'items.txt', 10.0, 2000, 300, 400, 100, 100, 120)
+    change_items(r'../npc/items.txt', 'items.txt', 50, 10.0, 2000, 300, 400, 100, 100, 120)
