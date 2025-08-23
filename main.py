@@ -590,7 +590,9 @@ class MainWin(QWidget, Ui_Form):
             attack_speed = self.box_item_moon_shard_attack_speed.value()
             attack_damage = self.box_item_rapier_attack_damage.value()
             magic_damage = self.box_item_rapier_magic_damage.value()
-            items.change_items(path, save_path, xp, gold, attack_speed, attack_damage, magic_damage)
+            move_speed = self.box_item_travel_boots_move_speed.value()
+            move_speed2 = self.box_item_travel_boots_2_move_speed.value()
+            items.change_items(path, save_path, xp, gold, attack_speed, attack_damage, magic_damage, move_speed, move_speed2)
             self.le_status_bar.setText('items.txt apply.')
         except Exception as e:
             self.le_status_bar.setText(f'error: {e}')
