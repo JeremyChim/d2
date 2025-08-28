@@ -223,7 +223,7 @@ class Ui_Form(object):
         self.box_npc_units_tower_hp.setMinimum(1.0)
         self.box_npc_units_tower_hp.setMaximum(100.0)
         self.box_npc_units_tower_hp.setSingleStep(0.1)
-        self.box_npc_units_tower_hp.setProperty("value", 1.0)
+        self.box_npc_units_tower_hp.setProperty("value", 2.0)
         self.box_npc_units_tower_hp.setObjectName("box_npc_units_tower_hp")
         self.horizontalLayout_9.addWidget(self.box_npc_units_tower_hp)
         self.verticalLayout_3.addLayout(self.horizontalLayout_9)
