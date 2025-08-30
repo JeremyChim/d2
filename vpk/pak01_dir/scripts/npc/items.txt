@@ -760,7 +760,7 @@
 		{
 				"bonus_attack_speed"	"140"
 				"bonus_night_vision"	"400"
-				"consumed_bonus"	"200"
+				"consumed_bonus"	"300"
 				"consumed_bonus_night_vision"	"200"
 		}
 	}
@@ -2514,7 +2514,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_movement_speed"	"100"
+				"bonus_movement_speed"	"120"
 				"maximum_distance"		"800"
 				"vision_radius"			"200"
 				"tp_cooldown"			"40"
@@ -2549,7 +2549,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_movement_speed"	"130"
+			"bonus_movement_speed"	"150"
 			"maximum_distance"		"800"
 			"vision_radius"			"200"
 			"tp_cooldown"			"40"
@@ -3571,7 +3571,7 @@
 		{
 				"bonus_attack_speed"	"50"
 				"xp_multiplier"			"5.0"
-				"bonus_gold"			"1000"
+				"bonus_gold"			"1500"
 		}
 	}
 
@@ -7515,8 +7515,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_spell_amp"		"50"
-			"bonus_damage"			"300"
+			"bonus_spell_amp"		"100"
+			"bonus_damage"			"500"
 			"bonus_damage_base"		"100"
 		}
 	}
