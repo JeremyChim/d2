@@ -1,4 +1,4 @@
-def change_xp_gold_and_tower_hp(path, save_path, xp_gold_mul, tower_hp_mul):
+def change_xp_gold_and_tower_hp(path, save_path, xp_gold_mul, tower_hp_mul, home_hp_regen):
     with open(path, 'r', encoding='utf-8') as f:
         data = f.readlines()
 
@@ -27,6 +27,20 @@ def change_xp_gold_and_tower_hp(path, save_path, xp_gold_mul, tower_hp_mul):
                     print(i2 + 1, line2_new, end='')
                     change_index_and_line[i2] = line2_new
                     break
+
+    for i, line in enumerate(data_new):
+        if 'Guys Fort' in line:
+            print(i + 1, line, end='')
+            for i2, line2 in enumerate(data_new[i:], i):
+                if 'StatusHealthRegen' in line2:
+                    cut = line2.split('"')
+                    val = cut[3]
+                    val_new = int((int(val) * home_hp_regen))
+                    line2_new = line2.replace(str(val), str(val_new))
+                    print(i2 + 1, line2_new, end='')
+                    change_index_and_line[i2] = line2_new
+                    break
+
     for index, line in change_index_and_line.items():
         data_new[index] = line
 
@@ -35,4 +49,4 @@ def change_xp_gold_and_tower_hp(path, save_path, xp_gold_mul, tower_hp_mul):
 
 
 if __name__ == '__main__':
-    change_xp_gold_and_tower_hp(r'../npc/npc_units.txt', 'npc_units.txt', 2, 1.5)
+    change_xp_gold_and_tower_hp(r'../npc/npc_units.txt', 'npc_units.txt', 2, 1.5, 10)
