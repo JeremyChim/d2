@@ -30,10 +30,11 @@ Customize.Localization = "zh"
 
 -- To ban some heroes for bots - Set the heroes you DO NOT want the bots to pick. Use hero internal names.
 -- Hero name ref: https://github.com/forest0xia/dota2bot-OpenHyperAI/discussions/71
+-- Please note that it is not 100% guaranteed that the banned hero will not be picked; for example if you banned too many heroes 
+-- like near 100% of the heroes, bots will need to randomly pick heroes regardless of the ban list to continue the game.
 Customize.Ban = {
     'example_npc_dota_hero_internal_name_to_ban',
 }
-
 --[[
 1. To pick heroes for the Radiant bots. You have to use hero's internal name.
 2. Hero internal name ref: https://github.com/forest0xia/dota2bot-OpenHyperAI/discussions/71
@@ -43,20 +44,19 @@ Customize.Ban = {
 6. Check Appendix to ensure you DO NOT pick more than 1 "weak" heroes in a team for your game experience.
 --]]
 Customize.Radiant_Heros = {
-    'Random',
-	'Random',
-	'Random',
-	'Random',
-	'Random',
+	'npc_dota_hero_invoker',
+	'npc_dota_hero_axe',
+	'npc_dota_hero_shadow_shaman',
+	'npc_dota_hero_warlock',
 }
 
 -- Same notes as above for picking heroes but for the Dire side.
 Customize.Dire_Heros = {
-	'Random',
-	'Random',
-	'Random',
-	'Random',
-	'Random',
+	'npc_dota_hero_antimage',
+	'npc_dota_hero_medusa',
+	'npc_dota_hero_doom_bringer',
+	'npc_dota_hero_undying',
+	'npc_dota_hero_rubick',
 }
 
 --[[
@@ -66,6 +66,18 @@ Customize.Dire_Heros = {
    may cause the bots to pick multiple weak heroes. See Appendix below about "weak" heroes.
 --]]
 Customize.Allow_Repeated_Heroes = false
+
+-- The max number of weak heroes allowed in a team the bots can pick.
+Customize.Weak_Hero_Cap = 0
+
+-- The weak penalty curve for bots picking weak heroes:
+--   { type="linear", k=0.25 }         ->  penalty = max(0, 1 - k * (weakPicked/cap))
+--   { type="quad",   k=1.0 }          ->  penalty = (1 - min(1, weakPicked/cap))^2
+--   { type="exp",    base=0.6 }       ->  penalty = base^(weakPicked)  (more weak -> smaller)
+Customize.Weak_Penalty = { type = "exp", base = 0.6 }
+
+-- Exact match on unit names by default; set Customize.Strict_Ban_Match = false to allow guarded substring matches (length ≥ 6).
+Customize.Strict_Ban_Match = true
 
 -- To allow bots do trash talking in different scenarios: got fb, killing a human, etc. Disable this also disables GPT chat.
 Customize.Allow_Trash_Talk = true
@@ -77,6 +89,9 @@ Customize.Allow_AI_GPT_Response = true
 -- 1 => no trash talks from ally bots, no taunt from enemy after it gets a kill. 2 => ally bots also trash talk to you, allow taunt from enemy after it gets a kill.
 Customize.Trash_Talk_Level = 1
 
+
+
+Customize.Force_Group_Push_Level = 3
 -- To set the names for the Radiant bots. Don't need to provide a value for all 5 bots, missing names will have a Random value.
 Customize.Radiant_Names = {
     'Random',
@@ -91,7 +106,7 @@ Customize.Dire_Names = {
 -- The desire level that the bots will group up and push the same lane. 
 -- 1 is mild meaning bots will group up only when convenient; 3 is bots will almost always try to push together.
 -- Group pushing may increase the difficulty but can reduce the game experience. 
-Customize.Force_Group_Push_Level = 1
+--Customize.Force_Group_Push_Level = 1
 
 -- The Enhanced Fretbots mode settings:
 -- For more about Fretbots mode: https://github.com/forest0xia/dota2bot-OpenHyperAI/discussions/68
@@ -101,17 +116,23 @@ Customize.Fretbots = {
     Default_Difficulty = 10,
 
     -- Default ally bots bonus scale comparing to enemy bots, a number between: [0, 1]
-    Default_Ally_Scale = 0,
+    Default_Ally_Scale = 0.5,
 
     -- Set whether or not allowing the team to vote for difficulty. If false, will directly apply the default difficulty.
     Allow_To_Vote = false,
 
-    -- Set to false disables all sounds
+    -- Set to false disables all sounds from Fretbots mode
     Play_Sounds = true,
 
     -- Set to play chatwheel taunt sounds when human player died
     Player_Death_Sound = true,
 }
+
+-- Make bots think less, 0: fully think through, 1 to 10: think less and less frequently.
+-- Bots can become slow or dumb in reaction and decision making if you set this value to a higher number.
+-- When doing Local Host, you can potentially improve PC performance (FPS) by setting this to 1 to 10, which sacrifices some bot IQ/performance.
+-- This won't be very effective for FPS improvement because Valve has a lot of compute on their side that your PC have to handle for Local Hosting.
+Customize.ThinkLess = 1;
 
 return Customize
 
@@ -184,7 +205,6 @@ return Customize
         'npc_dota_hero_phoenix',
         'npc_dota_hero_tinker',
         'npc_dota_hero_pangolier',
-        'npc_dota_hero_furion',
         'npc_dota_hero_tusk',
         'npc_dota_hero_morphling',
         'npc_dota_hero_visage',
